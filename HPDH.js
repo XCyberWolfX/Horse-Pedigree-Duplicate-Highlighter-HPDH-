@@ -3,7 +3,6 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Подсвечивает красным имена лошадей, которые повторяются 5 коленах родословной
-// @author       XCyberWolfX
 // @match        https://www.horseworldonline.net/horse/profile/*
 // @grant        none
 // @run-at       document-end
@@ -47,7 +46,7 @@
         // Возвращаем имена, которые встречаются 5+ раз
         const duplicates = new Set();
         for (const [name, count] of Object.entries(nameCount)) {
-            if (count >= 5) {
+            if (count >= 3) {
                 duplicates.add(name);
             }
         }
@@ -90,14 +89,14 @@
         const duplicates = findDuplicates(horseData);
 
         if (duplicates.size === 0) {
-            console.log('[Pedigree Highlighter] Дубликатов с 5+ повторениями не найдено');
+            console.log('[Pedigree Highlighter] Дубликатов с 2+ повторениями не найдено');
             return;
         }
 
         // Подсвечиваем дубликаты
         highlightDuplicates(horseData, duplicates);
 
-        console.log(`[Pedigree Highlighter] Найдено ${duplicates.size} имён с повторениями 5+ раз:`, [...duplicates]);
+        console.log(`[Pedigree Highlighter] Найдено ${duplicates.size} имён с повторениями 2+ раз:`, [...duplicates]);
     }
 
     // Запускаем после полной загрузки документа
