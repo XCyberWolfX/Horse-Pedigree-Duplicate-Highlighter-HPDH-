@@ -3,6 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Подсвечивает красным имена лошадей, которые повторяются 5 коленах родословной
+// @author       XCyberWolfX
 // @match        https://www.horseworldonline.net/horse/profile/*
 // @grant        none
 // @run-at       document-end
